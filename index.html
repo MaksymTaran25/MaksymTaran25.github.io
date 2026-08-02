@@ -3,519 +3,532 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Maksym Taran — Data Science &amp; Machine Learning</title>
-<meta name="description" content="Maksym Taran — data science student at the University of Utah and machine learning engineer intern at Interform, deploying models into production pipelines where geometry and color are contracts.">
+<title>Maksym Taran — Machine Learning Engineer</title>
+<meta name="description" content="Maksym Taran — Machine Learning Engineer Intern at Interform and Data Science BS student at the University of Utah. Model deployment, computer vision, and applied ML in production systems.">
 <meta name="color-scheme" content="light dark">
 <style>
   :root {
-    --paper:      #F4F3F0;
-    --paper-2:    #EAE8E3;
-    --ink:        #14161B;
-    --ink-2:      #4C4B55;
-    --ink-3:      #85818E;
-    --rule:       #D9D5CE;
-    --accent:     #C4006A;
-    --accent-2:   #0090C8;
-    --swatch-y:   #F2C300;
+    --paper:    #FCFBFA;
+    --paper-2:  #F2F0EC;
+    --ink:      #15171C;
+    --ink-2:    #4B4E57;
+    --ink-3:    #83868F;
+    --rule:     #E3E0DA;
+    --accent:   #A81C30;
+    --accent-soft: rgba(168, 28, 48, 0.09);
 
-    --font-mono: ui-monospace, "SF Mono", SFMono-Regular, "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
-    --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 
-    --measure: 62ch;
-    --gutter: clamp(1.5rem, 5vw, 4.5rem);
+    --shell: 66rem;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper:    #0E1015;
-      --paper-2:  #171A21;
-      --ink:      #EDEBE7;
-      --ink-2:    #A9A5B0;
-      --ink-3:    #6F6B79;
-      --rule:     #262932;
-      --accent:   #FF4D9D;
-      --accent-2: #3CB9E8;
-      --swatch-y: #E8C23A;
+      --paper:   #0F1115;
+      --paper-2: #171A20;
+      --ink:     #EEEDEA;
+      --ink-2:   #A9ACB4;
+      --ink-3:   #6E7179;
+      --rule:    #252932;
+      --accent:  #FF5C74;
+      --accent-soft: rgba(255, 92, 116, 0.13);
     }
   }
 
   *, *::before, *::after { box-sizing: border-box; }
-
-  html { -webkit-text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
   body {
     margin: 0;
     background: var(--paper);
     color: var(--ink);
-    font-family: var(--font-sans);
-    font-size: 1.0625rem;
-    line-height: 1.65;
+    font-family: var(--sans);
+    font-size: 1rem;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
 
-  a {
-    color: inherit;
-    text-decoration-color: var(--accent);
-    text-underline-offset: 0.22em;
-    text-decoration-thickness: 1px;
-    transition: color 140ms ease;
-  }
-  a:hover { color: var(--accent); }
-  a:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-    border-radius: 2px;
-  }
+  h1, h2, h3, h4 { margin: 0; text-wrap: balance; letter-spacing: -0.022em; }
+  p, ul { margin: 0; }
+  ul { padding: 0; list-style: none; }
 
-  h1, h2, h3 { text-wrap: balance; margin: 0; }
-  p { margin: 0; }
-  ul { margin: 0; padding: 0; list-style: none; }
+  a { color: inherit; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
-  /* --- press-sheet control bar ------------------------------------ */
-  .controlbar {
-    display: flex;
-    height: 10px;
-    width: 100%;
+  .shell { max-width: var(--shell); margin: 0 auto; padding-inline: var(--gutter); }
+
+  /* ---------- sticky bar ---------- */
+  .bar {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
   }
-  .controlbar span {
-    flex: 1;
-    transform: scaleX(0);
-    transform-origin: left center;
-    animation: ink 620ms cubic-bezier(.22,.68,.24,1) forwards;
+  .bar__inner {
+    max-width: var(--shell); margin: 0 auto; padding: 0.7rem var(--gutter);
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
   }
-  .controlbar span:nth-child(1) { background: var(--accent-2); animation-delay: 40ms; }
-  .controlbar span:nth-child(2) { background: var(--accent);   animation-delay: 100ms; }
-  .controlbar span:nth-child(3) { background: var(--swatch-y); animation-delay: 160ms; }
-  .controlbar span:nth-child(4) { background: var(--ink);      animation-delay: 220ms; }
-  .controlbar span:nth-child(5) { background: var(--accent-2); opacity: .45; animation-delay: 280ms; }
-  .controlbar span:nth-child(6) { background: var(--accent);   opacity: .45; animation-delay: 340ms; }
-  .controlbar span:nth-child(7) { background: var(--swatch-y); opacity: .45; animation-delay: 400ms; }
-  .controlbar span:nth-child(8) { background: var(--ink);      opacity: .25; animation-delay: 460ms; }
+  .bar__name { font-size: 0.9375rem; font-weight: 650; }
+  .bar__nav { display: flex; gap: 1.4rem; font-size: 0.875rem; color: var(--ink-2); }
+  .bar__nav a { text-decoration: none; }
+  .bar__nav a:hover { color: var(--accent); }
+  @media (max-width: 40rem) { .bar__nav { display: none; } }
 
-  @keyframes ink { to { transform: scaleX(1); } }
-
-  /* --- shell ------------------------------------------------------- */
-  .shell {
-    max-width: 70rem;
-    margin: 0 auto;
-    padding-inline: var(--gutter);
-  }
-
-  /* --- hero -------------------------------------------------------- */
-  .hero { padding: clamp(4rem, 11vw, 8rem) 0 clamp(3rem, 7vw, 5rem); }
-
-  .hero__eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--ink-3);
-    margin-bottom: 1.6rem;
-  }
-
-  .hero__name {
-    font-family: var(--font-mono);
-    font-size: clamp(2.5rem, 8vw, 4.75rem);
-    font-weight: 600;
-    letter-spacing: -0.045em;
-    line-height: 1.02;
-    margin-bottom: 1.6rem;
-  }
-
-  .hero__thesis {
-    font-size: clamp(1.25rem, 2.6vw, 1.6rem);
-    line-height: 1.35;
-    font-weight: 500;
-    max-width: 24ch;
-    margin-bottom: 1.75rem;
-    text-wrap: balance;
-  }
-  .hero__thesis em {
-    font-style: normal;
-    color: var(--accent);
-  }
-
-  .hero__intro {
-    max-width: var(--measure);
-    color: var(--ink-2);
-    margin-bottom: 1rem;
-  }
-
-  .hero__status {
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    letter-spacing: 0.02em;
-    color: var(--ink);
-    max-width: var(--measure);
-    margin-bottom: 2.5rem;
-  }
-  .hero__status::before {
-    content: "";
-    display: inline-block;
-    width: 0.55em;
-    height: 0.55em;
-    background: var(--accent);
-    margin-right: 0.6em;
-    vertical-align: 0.05em;
-  }
-
-  .hero__links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem 2rem;
-    font-family: var(--font-mono);
-    font-size: 0.875rem;
-  }
-
-  /* --- sections ---------------------------------------------------- */
-  .section { padding-block: clamp(2.5rem, 6vw, 4rem); }
-
-  .section__label {
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--ink-3);
-    margin-bottom: 2rem;
-  }
-  .section__label::before {
-    content: "";
-    width: 0.6rem;
-    height: 0.6rem;
-    background: var(--accent);
-    flex: none;
-  }
-
-  /* --- work entries ------------------------------------------------ */
-  .entries { display: flex; flex-direction: column; }
-
-  .entry {
+  /* ---------- hero ---------- */
+  .hero { padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(2rem, 4vw, 3rem); }
+  .hero__grid {
     display: grid;
-    grid-template-columns: 15rem minmax(0, 1fr);
-    gap: 2.5rem;
-    padding-block: 2.5rem;
-    border-top: 1px solid var(--rule);
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
   }
-  .entry:last-child { border-bottom: 1px solid var(--rule); }
-
-  .entry__meta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    line-height: 1.5;
-  }
-  .entry__org { font-weight: 600; letter-spacing: -0.01em; }
-  .entry__role,
-  .entry__date { color: var(--ink-3); }
-  .entry__date { font-variant-numeric: tabular-nums; }
-
-  .stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-    margin-top: 0.9rem;
-  }
-  .stack li {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    letter-spacing: 0.04em;
-    padding: 0.2rem 0.5rem;
-    background: var(--paper-2);
-    color: var(--ink-2);
-    white-space: nowrap;
-  }
-
-  .entry__title {
-    font-family: var(--font-mono);
-    font-size: clamp(1.2rem, 2.3vw, 1.6rem);
-    font-weight: 600;
+  .hero h1 {
+    font-size: clamp(2.4rem, 6vw, 3.5rem);
+    font-weight: 700; line-height: 1.03;
     letter-spacing: -0.035em;
-    line-height: 1.2;
-    margin-bottom: 0.9rem;
+    margin-bottom: 0.85rem;
   }
-  .entry__body p { max-width: var(--measure); color: var(--ink-2); }
+  .hero__headline {
+    font-size: clamp(1.0625rem, 1.7vw, 1.1875rem);
+    color: var(--ink-2); line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  .hero__headline strong { color: var(--ink); font-weight: 620; }
 
-  /* --- skills ------------------------------------------------------ */
-  .skills {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 2rem 2.5rem;
+  .avail {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.02em;
+    padding: 0.36rem 0.7rem;
+    background: var(--accent-soft); color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
   }
-  .skills__group h3 {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.7rem;
+  .avail::before {
+    content: ""; width: 0.45rem; height: 0.45rem; border-radius: 50%;
+    background: var(--accent); flex: none;
   }
-  .skills__group p { color: var(--ink-2); font-size: 0.9375rem; }
 
-  /* --- simple rows (education / recognition) ----------------------- */
-  .rows { display: flex; flex-direction: column; }
-  .row {
-    display: grid;
-    grid-template-columns: 15rem minmax(0, 1fr);
-    gap: 2.5rem;
-    padding-block: 1.6rem;
-    border-top: 1px solid var(--rule);
+  .hero__links { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+  .btn {
+    display: inline-block;
+    font-size: 0.875rem; font-weight: 550;
+    padding: 0.5rem 0.95rem;
+    border: 1px solid var(--rule); border-radius: 6px;
+    text-decoration: none; color: var(--ink);
+    transition: border-color 130ms ease, color 130ms ease;
   }
-  .row:last-child { border-bottom: 1px solid var(--rule); }
-  .row__when {
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    color: var(--ink-3);
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn--solid { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn--solid:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  /* at-a-glance panel */
+  .glance {
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.15rem 1.25rem;
+    background: var(--paper-2);
+    display: grid; gap: 0.9rem;
+  }
+  .glance__row { display: grid; gap: 0.15rem; }
+  .glance__k {
+    font-family: var(--mono); font-size: 0.6875rem;
+    letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-3);
+  }
+  .glance__v { font-size: 0.9375rem; line-height: 1.45; }
+
+  /* ---------- generic section ---------- */
+  .section { padding-block: clamp(2.25rem, 5vw, 3.5rem); border-top: 1px solid var(--rule); }
+  .section__head {
+    display: flex; align-items: baseline; gap: 0.85rem;
+    margin-bottom: 1.75rem;
+  }
+  .section__head h2 { font-size: 1.0625rem; font-weight: 650; }
+  .section__head span {
+    font-family: var(--mono); font-size: 0.6875rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3);
+  }
+
+  .prose { max-width: 68ch; color: var(--ink-2); font-size: 1.0312rem; }
+  .prose + .prose { margin-top: 0.9rem; }
+  .prose strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- roles / projects ---------- */
+  .item { display: grid; grid-template-columns: 13.5rem minmax(0, 1fr); gap: 1.25rem 2.5rem; }
+  .item + .item { margin-top: 2.25rem; padding-top: 2.25rem; border-top: 1px solid var(--rule); }
+
+  .item__meta { display: grid; gap: 0.2rem; align-content: start; }
+  .item__org { font-weight: 620; font-size: 0.9375rem; line-height: 1.35; }
+  .item__when, .item__where {
+    font-family: var(--mono); font-size: 0.75rem; color: var(--ink-3);
     font-variant-numeric: tabular-nums;
   }
-  .row__what strong { font-weight: 600; }
-  .row__what span { display: block; color: var(--ink-2); font-size: 0.9375rem; }
 
-  /* --- footer ------------------------------------------------------ */
-  .footer {
-    padding-block: clamp(3rem, 7vw, 5rem);
-    border-top: 1px solid var(--rule);
-    margin-top: clamp(2rem, 5vw, 3rem);
+  .item__title { font-size: 1.1875rem; font-weight: 650; margin-bottom: 0.7rem; }
+  .item__title a { text-decoration-color: var(--accent); text-underline-offset: 0.2em; }
+  .item__title a:hover { color: var(--accent); }
+
+  .bullets { display: grid; gap: 0.6rem; max-width: 68ch; }
+  .bullets li {
+    position: relative; padding-left: 1.05rem;
+    color: var(--ink-2); font-size: 0.96875rem; line-height: 1.55;
   }
-  .footer__head {
-    font-family: var(--font-mono);
-    font-size: clamp(1.5rem, 4vw, 2.25rem);
-    font-weight: 600;
-    letter-spacing: -0.04em;
-    margin-bottom: 1.25rem;
+  .bullets li::before {
+    content: ""; position: absolute; left: 0; top: 0.62em;
+    width: 5px; height: 5px; background: var(--accent); border-radius: 1px;
   }
-  .footer__links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem 2rem;
-    font-family: var(--font-mono);
-    font-size: 0.875rem;
-    margin-bottom: 2.5rem;
+  .bullets strong { color: var(--ink); font-weight: 600; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.95rem; }
+  .tags li {
+    font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.02em;
+    padding: 0.16rem 0.45rem; border: 1px solid var(--rule); border-radius: 3px;
+    color: var(--ink-2); white-space: nowrap;
   }
+
+  .stat {
+    display: inline-flex; align-items: baseline; gap: 0.5rem;
+    margin-top: 0.95rem; padding: 0.45rem 0.8rem;
+    background: var(--accent-soft); border-radius: 5px;
+  }
+  .stat b {
+    font-family: var(--mono); font-size: 1.125rem; font-weight: 650;
+    color: var(--accent); font-variant-numeric: tabular-nums;
+  }
+  .stat span { font-size: 0.8125rem; color: var(--ink-2); }
+
+  /* ---------- card grids ---------- */
+  .grid {
+    display: grid; gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(16.5rem, 1fr));
+  }
+  .card {
+    border: 1px solid var(--rule); border-radius: 7px;
+    padding: 0.95rem 1.05rem; display: grid; gap: 0.28rem; align-content: start;
+  }
+  .card__t { font-size: 0.9375rem; font-weight: 600; line-height: 1.35; }
+  .card__s { font-size: 0.8125rem; color: var(--ink-2); }
+  .card__d {
+    font-family: var(--mono); font-size: 0.6875rem; color: var(--ink-3);
+    letter-spacing: 0.03em;
+  }
+
+  /* education rows */
+  .edu { display: grid; gap: 0; }
+  .edu__row {
+    display: grid; grid-template-columns: 13.5rem minmax(0, 1fr);
+    gap: 0.3rem 2.5rem; padding-block: 1rem;
+  }
+  .edu__row + .edu__row { border-top: 1px solid var(--rule); }
+  .edu__when { font-family: var(--mono); font-size: 0.75rem; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .edu__what strong { display: block; font-weight: 620; font-size: 0.9688rem; }
+  .edu__what span { color: var(--ink-2); font-size: 0.875rem; }
+
+  /* ---------- footer ---------- */
+  .footer { padding-block: clamp(2.5rem, 5vw, 4rem); border-top: 1px solid var(--rule); }
+  .footer h2 { font-size: clamp(1.35rem, 3vw, 1.75rem); font-weight: 680; margin-bottom: 0.6rem; }
+  .footer p { color: var(--ink-2); max-width: 52ch; margin-bottom: 1.4rem; }
   .footer__fine {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-3);
+    margin-top: 2.5rem; font-family: var(--mono); font-size: 0.6875rem;
+    letter-spacing: 0.06em; color: var(--ink-3);
   }
 
-  /* --- responsive -------------------------------------------------- */
-  @media (max-width: 46rem) {
-    .entry, .row { grid-template-columns: 1fr; gap: 1.1rem; }
-    .entry { padding-block: 2rem; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .controlbar span { animation: none; transform: scaleX(1); }
-    * { transition: none !important; }
+  /* ---------- responsive ---------- */
+  @media (max-width: 54rem) {
+    .hero__grid { grid-template-columns: 1fr; }
+    .item, .edu__row { grid-template-columns: 1fr; gap: 0.75rem; }
+    .item__meta { gap: 0.1rem; }
   }
 </style>
 </head>
 <body>
 
-<div class="controlbar" aria-hidden="true">
-  <span></span><span></span><span></span><span></span>
-  <span></span><span></span><span></span><span></span>
-</div>
+<header class="bar">
+  <div class="bar__inner">
+    <span class="bar__name">Maksym Taran</span>
+    <nav class="bar__nav" aria-label="Sections">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
 <div class="shell">
 
-  <header class="hero">
-    <p class="hero__eyebrow">Salt Lake City, Utah</p>
-    <h1 class="hero__name">Maksym&nbsp;Taran</h1>
-    <p class="hero__thesis">Machine learning that has to be right the <em>first</em> time.</p>
-    <p class="hero__intro">
-      I study data science at the University of Utah and work as a machine learning engineer
-      intern at Interform, where models don't get to be approximately correct. My work sits
-      where research code meets a production pipeline — 3D reconstruction running inside a
-      .NET print service, color and geometry pinned by automated contracts, AI features
-      embedded in an ERP that field crews use every day.
-    </p>
-    <p class="hero__status">Currently looking for a Fall 2026 machine learning / AI internship.</p>
-    <nav class="hero__links" aria-label="Contact">
-      <a href="mailto:maksymtaran28@gmail.com">maksymtaran28@gmail.com</a>
-      <a href="https://www.linkedin.com/in/taranmaksym" rel="me noopener">LinkedIn</a>
-      <a href="https://github.com/MaksymTaran25" rel="me noopener">GitHub</a>
-    </nav>
-  </header>
+  <section class="hero">
+    <div class="hero__grid">
+      <div>
+        <h1>Maksym Taran</h1>
+        <p class="hero__headline">
+          <strong>Machine Learning Engineer Intern at Interform.</strong>
+          Data Science BS with a Fintech minor at the University of Utah, May 2027.
+          Python, PyTorch, LLMs, model deployment, NLP, and computer vision.
+        </p>
+        <p class="avail">Seeking a Fall 2026 ML/AI internship</p>
+        <div class="hero__links">
+          <a class="btn btn--solid" href="mailto:maksymtaran28@gmail.com">Email me</a>
+          <a class="btn" href="https://www.linkedin.com/in/taranmaksym" rel="me noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/MaksymTaran25" rel="me noopener">GitHub</a>
+        </div>
+      </div>
+
+      <aside class="glance" aria-label="At a glance">
+        <div class="glance__row">
+          <span class="glance__k">Based in</span>
+          <span class="glance__v">Salt Lake City, Utah</span>
+        </div>
+        <div class="glance__row">
+          <span class="glance__k">Focus</span>
+          <span class="glance__v">Model deployment, computer vision, applied ML in production systems</span>
+        </div>
+        <div class="glance__row">
+          <span class="glance__k">Graduating</span>
+          <span class="glance__v">May 2027 — B.S. Data Science, Fintech minor</span>
+        </div>
+        <div class="glance__row">
+          <span class="glance__k">Open to</span>
+          <span class="glance__v">On-site, hybrid, or remote</span>
+        </div>
+      </aside>
+    </div>
+  </section>
 
   <main>
 
-    <section class="section" id="work">
-      <h2 class="section__label">Selected Work</h2>
-      <div class="entries">
-
-        <article class="entry">
-          <div class="entry__meta">
-            <p class="entry__org">Interform</p>
-            <p class="entry__role">ML Engineer Intern</p>
-            <p class="entry__date">May 2026 — present</p>
-            <ul class="stack">
-              <li>C#</li><li>.NET</li><li>ONNX Runtime</li><li>MoGe-2</li>
-            </ul>
-          </div>
-          <div class="entry__body">
-            <h3 class="entry__title">3D reconstruction inside a print pipeline</h3>
-            <p>
-              A customer sends one photo of a product. The pipeline returns a 3D mesh with their
-              artwork wrapped onto it, ready to proof before anything reaches a press. I deployed
-              the MoGe-2 reconstruction model into Interform's production .NET service through
-              ONNX Runtime, so inference runs inside the pipeline that already drives print output
-              rather than as a separate step someone has to babysit.
-            </p>
-          </div>
-        </article>
-
-        <article class="entry">
-          <div class="entry__meta">
-            <p class="entry__org">Interform</p>
-            <p class="entry__role">ML Engineer Intern</p>
-            <p class="entry__date">May 2026 — present</p>
-            <ul class="stack">
-              <li>C#</li><li>Golden-file testing</li><li>Pantone / CMYK</li>
-            </ul>
-          </div>
-          <div class="entry__body">
-            <h3 class="entry__title">A regression harness for color and geometry</h3>
-            <p>
-              Print is unforgiving. A color that drifts between runs isn't a warning, it's a
-              reprint someone pays for. I built a dependency-free C# regression harness that pins
-              geometry, determinism, and Pantone/CMYK color contracts, so every change is checked
-              against known-good output before it can reach a customer's order.
-            </p>
-          </div>
-        </article>
-
-        <article class="entry">
-          <div class="entry__meta">
-            <p class="entry__org">Interform</p>
-            <p class="entry__role">ML Engineer Intern</p>
-            <p class="entry__date">May 2026 — present</p>
-            <ul class="stack">
-              <li>C#</li><li>ASP.NET Core</li><li>React</li><li>InDesign / IDML</li>
-            </ul>
-          </div>
-          <div class="entry__body">
-            <h3 class="entry__title">Variable-data business card platform</h3>
-            <p>
-              Designers keep working in InDesign; the platform turns their template into
-              print-ready PDFs with each person's details filled in. It handles font embedding and
-              brand color pass-through, so the last card generated comes out identical to the one
-              the designer originally approved.
-            </p>
-          </div>
-        </article>
-
-        <article class="entry">
-          <div class="entry__meta">
-            <p class="entry__org">Solutions360</p>
-            <p class="entry__role">Project</p>
-            <p class="entry__date">Feb — May 2026</p>
-            <ul class="stack">
-              <li>Next.js</li><li>TypeScript</li><li>Gemini API</li><li>React</li><li>PostgreSQL</li>
-            </ul>
-          </div>
-          <div class="entry__body">
-            <h3 class="entry__title">AI workflow integration for the Q360 ERP</h3>
-            <p>
-              Managers and field technicians were retyping the same emails and status updates all
-              day. I built AI agents on top of the Q360 field service platform — email drafting,
-              summarization, recommended actions, status reports, and smart replies — as five
-              Next.js API endpoints paired with reusable React components embedded directly into
-              the manager and employee views. A seeding pipeline pulls the live Q360 schema over
-              REST and generates synthetic records across SQLite and PostgreSQL, so the features
-              could be built and tested against realistic data.
-            </p>
-          </div>
-        </article>
-
-        <article class="entry">
-          <div class="entry__meta">
-            <p class="entry__org">Utah Lab of AI Powered Systems</p>
-            <p class="entry__role">Research Assistant</p>
-            <p class="entry__date">May 2025 — present</p>
-            <ul class="stack">
-              <li>Python</li><li>PyTorch</li><li>OpenCV</li><li>NumPy</li>
-            </ul>
-          </div>
-          <div class="entry__body">
-            <h3 class="entry__title">Predicting values from video with a CNN-LSTM</h3>
-            <p>
-              University research on predicting target values from video sequences. I process and
-              prepare the video data with OpenCV, train a CNN-LSTM that reads motion across frames
-              instead of judging each frame alone, and apply Gaussian noise augmentation so the
-              model holds up on noisier footage. I brief the project coordinator weekly on where
-              the model stands.
-            </p>
-          </div>
-        </article>
-
-      </div>
+    <section class="section" id="about">
+      <div class="section__head"><h2>About</h2><span>Background</span></div>
+      <p class="prose">
+        I'm pursuing a Bachelor's in Data Science with a minor in Fintech at the University of
+        Utah, graduating May 2027. My interests are in machine learning broadly, with applications
+        to deep learning, computer vision, and systems involving large language models — built in
+        Python, PyTorch, TensorFlow, SQL, and the rest of the Python data science suite. I've
+        always been drawn to how machine learning is applied in finance, because of the immediate
+        effect it brings.
+      </p>
+      <p class="prose">
+        Right now I work end to end on a print-automation product at Interform, deploying computer
+        vision and 3D reconstruction models into a production .NET pipeline. Alongside that I do
+        research in the Mechanical Engineering department on time-series ML pipelines, and build
+        full-stack features for a real-time experimental-markets platform at the University's
+        Laboratory for Experimental Economics and Finance.
+      </p>
+      <p class="prose">
+        I'm looking for internships or full-time roles in machine learning or AI where I can build
+        real ML systems and keep growing as an engineer. I'm especially interested in finance,
+        fintech, and quantitative methods — but I'd be glad to talk with anyone working on strong
+        applied ML.
+      </p>
     </section>
 
-    <section class="section" id="skills">
-      <h2 class="section__label">Toolkit</h2>
-      <div class="skills">
-        <div class="skills__group">
-          <h3>Machine Learning</h3>
-          <p>Deep learning, computer vision, transformers, fine-tuning, LLM integration, model deployment with ONNX Runtime, Stable Diffusion, Hugging Face, 3D reconstruction, time series.</p>
+    <section class="section" id="experience">
+      <div class="section__head"><h2>Experience</h2><span>Three current roles</span></div>
+
+      <article class="item">
+        <div class="item__meta">
+          <p class="item__org">Interform</p>
+          <p class="item__when">May 2026 — Present</p>
+          <p class="item__where">Centerville, UT · On-site</p>
         </div>
-        <div class="skills__group">
-          <h3>Languages</h3>
-          <p>Python (PyTorch, TensorFlow, Pandas, NumPy, OpenCV, scikit-learn, FastAPI), C# / .NET, Java, TypeScript, Swift, SQL.</p>
+        <div>
+          <h3 class="item__title">Machine Learning Engineer Intern</h3>
+          <ul class="bullets">
+            <li>Deployed <strong>MoGe-2</strong>, a transformer-based monocular geometry model, into a .NET production pipeline via ONNX Runtime — reconstructing 3D surfaces from single product photos and converting point maps into warp meshes that bend customer artwork around mugs and fabric folds.</li>
+            <li>Raised reconstruction quality by cropping model input to the print area, interpolating predicted fields to remove grid artifacts, and measuring the model's usable resolution to set adaptive mesh density.</li>
+            <li>Built a dependency-free C# regression harness verifying reconstructed geometry against analytic test scenes with known camera projections, plus determinism and color-accuracy (Pantone/CMYK) contracts.</li>
+            <li>Engineered the production rendering passes — brightness-neutral fabric texture, shading that stays visible on dark inks, and procedural embroidery modeled on how digitizers assign stitches.</li>
+            <li>Prototyped a generative rendering stage (SDXL/RealVisXL + ControlNet, Hugging Face diffusers on Apple Silicon) and benchmarked it against the procedural C# renderer that ships in production.</li>
+            <li>Shipped a variable-data business-card platform full-stack: React/TypeScript UI and a .NET 10 / ASP.NET Core backend compiling InDesign IDML into fillable AcroForm templates, filling them into print-ready PDFs with spot/Pantone and CMYK fidelity preserved.</li>
+          </ul>
+          <ul class="tags">
+            <li>C#</li><li>.NET 10</li><li>ONNX Runtime</li><li>Computer Vision</li><li>3D Reconstruction</li><li>SDXL</li><li>ControlNet</li><li>React</li><li>TypeScript</li>
+          </ul>
         </div>
-        <div class="skills__group">
-          <h3>Building</h3>
-          <p>ASP.NET Core, React, Next.js, Angular, Spring Boot, Git, PostgreSQL, MySQL, SQLite, Power BI.</p>
+      </article>
+
+      <article class="item">
+        <div class="item__meta">
+          <p class="item__org">University of Utah — Laboratory for Experimental Economics and Finance</p>
+          <p class="item__when">Apr 2026 — Present</p>
+          <p class="item__where">Salt Lake City, UT · Remote</p>
         </div>
-        <div class="skills__group">
-          <h3>Spoken</h3>
-          <p>English (fluent), Ukrainian (native), Russian (native).</p>
+        <div>
+          <h3 class="item__title">Undergraduate Research Assistant</h3>
+          <ul class="bullets">
+            <li>Engineering full-stack features for a real-time experimental-markets platform that powers economics and finance research and university coursework.</li>
+            <li>Building responsive, component-driven interfaces in <strong>Angular 22</strong> and TypeScript, using standalone signal-based components, Angular Material, RxJS, and STOMP over WebSockets to stream live market data.</li>
+            <li>Extending the Java 21 and Spring Boot backend on Maven, including concurrency optimizations built on virtual threads.</li>
+            <li>Collaborating in a fork-based GitHub workflow with senior-engineer code review, backed by unit testing in Vitest and validation against real production data.</li>
+          </ul>
+          <ul class="tags">
+            <li>Angular 22</li><li>TypeScript</li><li>RxJS</li><li>WebSockets</li><li>Java 21</li><li>Spring Boot</li><li>Vitest</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item__meta">
+          <p class="item__org">University of Utah — Dept. of Mechanical Engineering</p>
+          <p class="item__when">May 2025 — Present</p>
+          <p class="item__where">Salt Lake City, UT · Hybrid</p>
+        </div>
+        <div>
+          <h3 class="item__title">Undergraduate Research Assistant</h3>
+          <ul class="bullets">
+            <li>Conducting machine-learning research focused on time-series modeling, predictive analytics, and iterative experimentation with different training strategies.</li>
+            <li>Building and evaluating models, preparing and cleaning data, tuning performance, and troubleshooting training issues to improve model stability and accuracy.</li>
+            <li>Developing full end-to-end ML workflows: data preprocessing, feature preparation, model training, validation, testing, and clear documentation of results.</li>
+            <li>Analyzing model behavior, comparing performance across variations, and refining approaches based on empirical findings.</li>
+          </ul>
+          <ul class="tags">
+            <li>Python</li><li>PyTorch</li><li>Time Series</li><li>Deep Learning</li><li>OpenCV</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section__head"><h2>Projects</h2><span>Selected work</span></div>
+
+      <article class="item">
+        <div class="item__meta">
+          <p class="item__org">Open source</p>
+          <p class="item__when">Mar 2026 — Present</p>
+          <p class="item__where">Swift · MIT licensed</p>
+        </div>
+        <div>
+          <h3 class="item__title">
+            <a href="https://github.com/MaksymTaran25/TokenUsageMonitor" rel="noopener">Token Usage Monitor →</a>
+          </h3>
+          <ul class="bullets">
+            <li>A macOS menu bar app that surfaces Claude AI rate-limit and token-usage data in the menu bar and desktop widgets. Community-built, distributed via Homebrew and GitHub Releases.</li>
+            <li>Live menu bar percentage with a customizable, drag-to-reorder popover showing per-model token breakdowns across 24-hour, 7-day, and 30-day windows.</li>
+            <li>Three desktop widget sizes plus a weekly widget, kept in sync through a shared sandbox container — no Apple Developer account required.</li>
+            <li>An "Agent Watchers" floating panel that detects active Claude Code CLI sessions, shows their project directories, and focuses a session's terminal window on click.</li>
+            <li>OAuth credentials loaded from the macOS Keychain, usage polled every five minutes with graceful 429 fallback. Ships with XcodeGen project generation, automated DMG packaging, and a Homebrew tap for one-line installation.</li>
+          </ul>
+          <ul class="tags">
+            <li>Swift 5.9</li><li>SwiftUI</li><li>WidgetKit</li><li>Keychain Services</li><li>XcodeGen</li><li>Homebrew</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item__meta">
+          <p class="item__org">Clinical decision support</p>
+          <p class="item__when">Jan 2026 — Apr 2026</p>
+          <p class="item__where">Deep learning · EEG</p>
+        </div>
+        <div>
+          <h3 class="item__title">NeuroNate — neonatal EEG triage</h3>
+          <ul class="bullets">
+            <li>A web app that predicts neurodevelopmental outcomes for newborns from raw EEG recordings, built to help triage neonatal HIE cases in the NICU. Users upload a standard <code>.edf</code> file and get two independent probability estimates — likelihood of normal development and likelihood of severe impairment — with a low risk / review / high risk triage flag.</li>
+            <li>Finetuned an <strong>EEG-DINO-L</strong> transformer encoder (24 layers, 1024-d embeddings) end to end on labeled neonatal HIE recordings, with dual classification heads for good and severe outcomes.</li>
+            <li>Built the full signal-processing pipeline in MNE-Python: 19-channel 10-20 montage selection, 0.3–30 Hz bandpass filter, resampling to 128 Hz, and 60-second sub-epoch aggregation.</li>
+            <li>Wrapped the model in a Flask application with SQLAlchemy, session-based auth using pbkdf2-hashed passwords, per-user prediction history, and a vanilla JS frontend.</li>
+          </ul>
+          <p class="stat"><b>0.947</b> <span>best validation AUC</span></p>
+          <ul class="tags">
+            <li>PyTorch</li><li>MNE-Python</li><li>MONAI</li><li>timm</li><li>Flask</li><li>SQLAlchemy</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item__meta">
+          <p class="item__org">Solutions360</p>
+          <p class="item__when">Feb 2026 — May 2026</p>
+          <p class="item__where">Client project · University of Utah</p>
+        </div>
+        <div>
+          <h3 class="item__title">AI agents for the Q360 ERP</h3>
+          <ul class="bullets">
+            <li>Designed and trained AI agents for Solutions360, a real client worked with through the University of Utah, using the <strong>Gemini API</strong>.</li>
+            <li>Built automated report generation, a natural language query interface for client dashboards, and an automated ticket classification pipeline.</li>
+            <li>Delivered the work as Next.js API endpoints paired with reusable React components embedded into the ERP's manager and employee views.</li>
+            <li>Architected a database seeding pipeline that pulls the live Q360 schema over REST and generates synthetic test data across SQLite and PostgreSQL.</li>
+          </ul>
+          <ul class="tags">
+            <li>Gemini API</li><li>Next.js</li><li>TypeScript</li><li>React</li><li>PostgreSQL</li><li>SQLite</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="credentials">
+      <div class="section__head"><h2>Awards &amp; Certifications</h2><span>Recognition</span></div>
+
+      <div class="grid" style="margin-bottom: 1.5rem;">
+        <div class="card">
+          <p class="card__t">NVIDIA's Choice Award</p>
+          <p class="card__s">A Breath of Fresh Air: AI Hackathon</p>
+          <p class="card__d">NVIDIA · Jun 2025</p>
+        </div>
+        <div class="card">
+          <p class="card__t">Best Technical Dashboard</p>
+          <p class="card__s">KPMG + Layton Construction Data Analytics Challenge</p>
+          <p class="card__d">David Eccles School of Business · Nov 2025</p>
+        </div>
+        <div class="card">
+          <p class="card__t">Top Ten — Early Talent Competition</p>
+          <p class="card__s">Wells Fargo × The Global Career Accelerator</p>
+          <p class="card__d">Feb 2026</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <p class="card__t">Bloomberg Market Concepts</p>
+          <p class="card__s">Financial markets, economics, fixed income, equities, currencies</p>
+          <p class="card__d">Bloomberg · Apr 2026</p>
+        </div>
+        <div class="card">
+          <p class="card__t">AI Professional Skills</p>
+          <p class="card__s">With OpenAI · large language models</p>
+          <p class="card__d">Global Career Accelerator · May 2026</p>
+        </div>
+        <div class="card">
+          <p class="card__t">Python and Data</p>
+          <p class="card__s">With the Recording Academy · Python, Plotly</p>
+          <p class="card__d">Global Career Accelerator · May 2026</p>
+        </div>
+        <div class="card">
+          <p class="card__t">Querying Data</p>
+          <p class="card__s">SQL</p>
+          <p class="card__d">Global Career Accelerator · Mar 2026</p>
+        </div>
+        <div class="card">
+          <p class="card__t">Intercultural Skills</p>
+          <p class="card__s">With UNESCO</p>
+          <p class="card__d">Global Career Accelerator · May 2026</p>
+        </div>
+        <div class="card">
+          <p class="card__t">Aerospace Scholars Program</p>
+          <p class="card__s">Selected participant, Price College of Engineering</p>
+          <p class="card__d">University of Utah</p>
         </div>
       </div>
     </section>
 
     <section class="section" id="education">
-      <h2 class="section__label">Education</h2>
-      <div class="rows">
-        <div class="row">
-          <p class="row__when">Aug 2024 — Apr 2027</p>
-          <p class="row__what">
+      <div class="section__head"><h2>Education</h2><span>Coursework</span></div>
+      <div class="edu">
+        <div class="edu__row">
+          <p class="edu__when">Aug 2024 — Apr 2027</p>
+          <p class="edu__what">
             <strong>B.S. Data Science, minor in Fintech</strong>
             <span>University of Utah · Dean's List — Fall 2024, Summer 2025, Spring 2026</span>
           </p>
         </div>
-        <div class="row">
-          <p class="row__when">Sep 2023 — Jun 2024</p>
-          <p class="row__what">
-            <strong>B.S. Applied Mathematics and Data Science</strong>
-            <span>Inholland University, Amsterdam</span>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="recognition">
-      <h2 class="section__label">Recognition</h2>
-      <div class="rows">
-        <div class="row">
-          <p class="row__when">Jun 2025</p>
-          <p class="row__what">
-            <strong>NVIDIA's Choice Award</strong>
-            <span>A Breath of Fresh Air: AI Hackathon · Salt Lake City</span>
-          </p>
-        </div>
-        <div class="row">
-          <p class="row__when">Nov 2025</p>
-          <p class="row__what">
-            <strong>Best Technical Dashboard</strong>
-            <span>KPMG + Layton Construction Data Analytics Challenge · Salt Lake City</span>
+        <div class="edu__row">
+          <p class="edu__when">Sep 2023 — Jun 2024</p>
+          <p class="edu__what">
+            <strong>B.A.Sc. Applied Mathematics / Data Science</strong>
+            <span>Inholland University of Applied Sciences · Amsterdam, Netherlands</span>
           </p>
         </div>
       </div>
@@ -523,14 +536,18 @@
 
   </main>
 
-  <footer class="footer">
-    <p class="footer__head">Let's talk.</p>
-    <nav class="footer__links" aria-label="Contact">
-      <a href="mailto:maksymtaran28@gmail.com">maksymtaran28@gmail.com</a>
-      <a href="https://www.linkedin.com/in/taranmaksym" rel="me noopener">linkedin.com/in/taranmaksym</a>
-      <a href="https://github.com/MaksymTaran25" rel="me noopener">github.com/MaksymTaran25</a>
-    </nav>
-    <p class="footer__fine">Maksym Taran — Salt Lake City, Utah</p>
+  <footer class="footer" id="contact">
+    <h2>Let's talk.</h2>
+    <p>
+      I'm looking for a Fall 2026 machine learning or AI internship, and I'm always glad to
+      talk with people building applied ML — especially in finance and fintech.
+    </p>
+    <div class="hero__links">
+      <a class="btn btn--solid" href="mailto:maksymtaran28@gmail.com">maksymtaran28@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/taranmaksym" rel="me noopener">linkedin.com/in/taranmaksym</a>
+      <a class="btn" href="https://github.com/MaksymTaran25" rel="me noopener">github.com/MaksymTaran25</a>
+    </div>
+    <p class="footer__fine">Maksym Taran · Salt Lake City, Utah · He/Him</p>
   </footer>
 
 </div>
