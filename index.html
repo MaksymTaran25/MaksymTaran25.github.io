@@ -4,8 +4,31 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Maksym Taran - Machine Learning Engineer</title>
-<meta name="description" content="Maksym Taran - Machine Learning Engineer Intern at Interform and Data Science BS student at the University of Utah. Model deployment, computer vision, and applied ML in production systems.">
+<meta name="description" content="Maksym Taran - Machine Learning Engineer Intern at Interform, founder of Neotrace, co-founder of OnPrem, and Data Science BS student at the University of Utah. Model deployment, computer vision, and applied ML in production systems.">
 <meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://maksymtaran25.github.io/">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://maksymtaran25.github.io/">
+<meta property="og:title" content="Maksym Taran - Machine Learning Engineer">
+<meta property="og:description" content="ML Engineer Intern at Interform, founder of Neotrace, co-founder of OnPrem. Data Science BS, University of Utah, April 2027.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23A81C30'/%3E%3Ctext x='32' y='42' font-family='system-ui,-apple-system,Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='white' text-anchor='middle'%3EMT%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Maksym Taran",
+  "url": "https://maksymtaran25.github.io/",
+  "jobTitle": "Machine Learning Engineer Intern",
+  "worksFor": { "@type": "Organization", "name": "Interform" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "University of Utah" },
+    { "@type": "CollegeOrUniversity", "name": "Inholland University of Applied Sciences" }
+  ],
+  "knowsLanguage": ["en", "uk", "ru"],
+  "sameAs": ["https://www.linkedin.com/in/taranmaksym", "https://github.com/MaksymTaran25"]
+}
+</script>
 <style>
   :root {
     --paper:    #FCFBFA;
@@ -230,12 +253,76 @@
   }
   .stat span { font-size: 0.8125rem; color: var(--ink-2); }
 
+  /* ---------- org logos ---------- */
+  .logo {
+    width: 2.75rem; height: 2.75rem; flex: none;
+    display: grid; place-items: center;
+    border: 1px solid var(--rule); border-radius: 9px;
+    background: var(--paper-2);
+    overflow: hidden;
+  }
+  .logo:empty::before {
+    content: attr(data-mono);
+    font-family: var(--mono); font-size: 0.75rem; font-weight: 650;
+    letter-spacing: 0.02em; color: var(--accent);
+  }
+  .logo--img { background: #fff; }
+  .logo--ink { background: #15171C; border-color: transparent; }
+  .logo img { width: 68%; height: 68%; object-fit: contain; display: block; }
+  .logo--tight img { width: 56%; height: 56%; }
+  .logo--bleed img { width: 100%; height: 100%; object-fit: cover; }
+  .logo > svg { width: 52%; height: 52%; fill: currentColor; color: var(--ink-2); }
+  .logo--sm { width: 2.25rem; height: 2.25rem; border-radius: 7px; }
+  .logo--sm:empty::before { font-size: 0.6875rem; }
+  @media (prefers-color-scheme: dark) {
+    .logo--img { border-color: transparent; }
+    .logo--ink { border-color: var(--rule); }
+  }
+
+  .item__meta .logo { margin-bottom: 0.65rem; }
+
+  .item__lede { color: var(--ink); max-width: 68ch; margin: -0.3rem 0 0.8rem; }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    margin: -0.25rem 0 0.9rem;
+    padding: 0.2rem 0.65rem 0.2rem 0.22rem;
+    border: 1px solid var(--rule); border-radius: 100px;
+    font-size: 0.8125rem; color: var(--ink-2); text-decoration: none;
+    background: color-mix(in srgb, var(--paper) 72%, transparent);
+    transition: border-color 130ms ease, color 130ms ease;
+  }
+  .badge .logo { width: 1.4rem; height: 1.4rem; border-radius: 50%; }
+  .badge .logo:empty::before { font-size: 0.5625rem; }
+  a.badge:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* several roles under one organization */
+  .roles { display: grid; gap: 2rem; }
+  .role { position: relative; padding-left: 1.4rem; }
+  .role::before {
+    content: ""; position: absolute; left: 0; top: 0.45rem;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--paper); border: 2px solid var(--accent);
+  }
+  .role::after {
+    content: ""; position: absolute; left: 4px; top: 1.3rem; bottom: -1.7rem;
+    width: 1px; background: var(--rule);
+  }
+  .role:last-child::after { display: none; }
+  .role__title { font-size: 1.0625rem; font-weight: 650; line-height: 1.35; }
+  .role__meta {
+    font-family: var(--mono); font-size: 0.75rem; color: var(--ink-3);
+    font-variant-numeric: tabular-nums; margin: 0.25rem 0 0.75rem;
+  }
+
   /* ---------- card grids ---------- */
   .grid {
     display: grid; gap: 0.75rem;
     grid-template-columns: repeat(auto-fill, minmax(16.5rem, 1fr));
+    grid-auto-rows: 1fr;
   }
   .card {
+    min-height: 9rem;
     border: 1px solid var(--rule); border-radius: 7px;
     padding: 0.95rem 1.05rem; display: grid; gap: 0.28rem; align-content: start;
     background: color-mix(in srgb, var(--paper) 80%, transparent);
@@ -246,6 +333,9 @@
     font-family: var(--mono); font-size: 0.6875rem; color: var(--ink-3);
     letter-spacing: 0.03em;
   }
+  .card--logo { grid-template-columns: auto minmax(0, 1fr); column-gap: 0.85rem; }
+  .card--logo .logo { grid-row: 1 / span 3; }
+  .card--logo > p { grid-column: 2; }
 
   /* education rows */
   .edu { display: grid; gap: 0; }
@@ -255,8 +345,9 @@
   }
   .edu__row + .edu__row { border-top: 1px solid var(--rule); }
   .edu__when { font-family: var(--mono); font-size: 0.75rem; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .edu__what { display: flex; align-items: center; gap: 0.85rem; }
   .edu__what strong { display: block; font-weight: 620; font-size: 0.9688rem; }
-  .edu__what span { color: var(--ink-2); font-size: 0.875rem; }
+  .edu__what p span { color: var(--ink-2); font-size: 0.875rem; }
 
   /* ---------- footer ---------- */
   .footerband {
@@ -303,7 +394,9 @@
   @media (max-width: 54rem) {
     .hero__grid, .footer__grid { grid-template-columns: 1fr; }
     .item, .edu__row { grid-template-columns: 1fr; gap: 0.75rem; }
-    .item__meta { gap: 0.1rem; }
+    .item__meta { gap: 0.1rem; grid-template-columns: auto minmax(0, 1fr); column-gap: 0.85rem; }
+    .item__meta .logo { grid-row: 1 / span 3; margin-bottom: 0; align-self: center; }
+    .item__meta > :not(.logo) { grid-column: 2; }
   }
 </style>
 </head>
@@ -334,6 +427,7 @@
     <span class="bar__name">Maksym Taran</span>
     <nav class="bar__nav" aria-label="Sections">
       <a href="#experience">Experience</a>
+      <a href="#ventures">Ventures</a>
       <a href="#projects">Projects</a>
       <a href="#awards">Awards</a>
       <a href="#certifications">Certifications</a>
@@ -350,10 +444,11 @@
         <h1>Maksym Taran</h1>
         <p class="hero__headline">
           <strong>Machine Learning Engineer Intern at Interform.</strong>
-          Data Science BS with a Fintech minor at the University of Utah, May 2027.
+          Founder of Neotrace and co-founder of OnPrem.
+          Data Science BS with a Fintech minor at the University of Utah, April 2027.
           Python, PyTorch, LLMs, model deployment, NLP, and computer vision.
         </p>
-        <p class="avail">Seeking a Fall 2026 ML/AI internship</p>
+        <p class="avail">Seeking a Spring 2027 ML/AI internship</p>
         <div class="hero__links">
           <a class="btn btn--solid" href="mailto:maksymtaran28@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg>Email me</a>
           <a class="btn" href="https://www.linkedin.com/in/taranmaksym" rel="me noopener"><svg aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
@@ -371,8 +466,16 @@
           <span class="glance__v">Model deployment, computer vision, applied ML in production systems</span>
         </div>
         <div class="glance__row">
+          <span class="glance__k">Building</span>
+          <span class="glance__v">Neotrace (founder, Sandbox accelerator) and OnPrem (co-founder)</span>
+        </div>
+        <div class="glance__row">
           <span class="glance__k">Graduating</span>
-          <span class="glance__v">May 2027 - B.S. Data Science, Fintech minor</span>
+          <span class="glance__v">April 2027 - B.S. Data Science, Fintech minor</span>
+        </div>
+        <div class="glance__row">
+          <span class="glance__k">Languages</span>
+          <span class="glance__v">English, Ukrainian, Russian</span>
         </div>
         <div class="glance__row">
           <span class="glance__k">Open to</span>
@@ -406,7 +509,7 @@
       <div class="section__head"><h2>About</h2></div>
       <p class="prose">
         I'm pursuing a Bachelor's in Data Science with a minor in Fintech at the University of
-        Utah, graduating May 2027. My interests are in machine learning broadly, with applications
+        Utah, graduating April 2027. My interests are in machine learning broadly, with applications
         to deep learning, computer vision, and systems involving large language models - built in
         Python, PyTorch, TensorFlow, SQL, and the rest of the Python data science suite. I've
         always been drawn to how machine learning is applied in finance, because of the immediate
@@ -414,10 +517,16 @@
       </p>
       <p class="prose">
         Right now I work end to end on a print-automation product at Interform, deploying computer
-        vision and 3D reconstruction models into a production .NET pipeline. Alongside that I do
-        research in the Mechanical Engineering department on time-series ML pipelines, and build
-        full-stack features for a real-time experimental-markets platform at the University's
-        Laboratory for Experimental Economics and Finance.
+        vision and 3D reconstruction models into a production .NET pipeline. I'm also building two
+        startups: Neotrace, an EEG triage tool for newborns that I'm taking through the Sandbox
+        accelerator, and OnPrem, an on-premise LLM gateway I co-founded.
+      </p>
+      <p class="prose">
+        Alongside that I do research in three University of Utah labs: time-series ML in the
+        Mechanical Engineering department, full-stack features for a real-time experimental-markets
+        platform at the Laboratory for Experimental Economics and Finance, and a multi-agent system
+        that evaluates and fine-tunes models automatically at the Utah Waves &amp; Architected
+        Materials Lab.
       </p>
       <p class="prose">
         I'm looking for internships or full-time roles in machine learning or AI where I can build
@@ -432,6 +541,7 @@
 
       <article class="item">
         <div class="item__meta">
+          <span class="logo logo--ink" data-logo="interform" aria-hidden="true"><img src="logos/interform.png" alt="" loading="lazy" decoding="async"></span>
           <p class="item__org">Interform</p>
           <p class="item__when">May 2026 - Present</p>
           <p class="item__where">Centerville, UT · On-site</p>
@@ -440,54 +550,113 @@
           <h3 class="item__title">Machine Learning Engineer Intern</h3>
           <ul class="bullets">
             <li>Deployed <strong>MoGe-2</strong>, a transformer-based monocular geometry model, into a .NET production pipeline via ONNX Runtime - reconstructing 3D surfaces from single product photos and converting point maps into warp meshes that bend customer artwork around mugs and fabric folds.</li>
+            <li>Benchmarked four vision and vision-language models on a labeled product-photo set, then shipped a zero-shot product classifier and locator (<strong>SigLIP 2</strong> + Grounding DINO) that gets all 247 test photos right across a 54-type reference library.</li>
             <li>Raised reconstruction quality by cropping model input to the print area, interpolating predicted fields to remove grid artifacts, and measuring the model's usable resolution to set adaptive mesh density.</li>
             <li>Built a dependency-free C# regression harness verifying reconstructed geometry against analytic test scenes with known camera projections, plus determinism and color-accuracy (Pantone/CMYK) contracts.</li>
             <li>Engineered the production rendering passes - brightness-neutral fabric texture, shading that stays visible on dark inks, and procedural embroidery modeled on how digitizers assign stitches.</li>
             <li>Prototyped a generative rendering stage (SDXL/RealVisXL + ControlNet, Hugging Face diffusers on Apple Silicon) and benchmarked it against the procedural C# renderer that ships in production.</li>
             <li>Shipped a variable-data business-card platform full-stack: React/TypeScript UI and a .NET 10 / ASP.NET Core backend compiling InDesign IDML into fillable AcroForm templates, filling them into print-ready PDFs with spot/Pantone and CMYK fidelity preserved.</li>
           </ul>
+          <p class="stat"><b>247/247</b> <span>zero-shot product classification, 54 types</span></p>
           <ul class="tags">
-            <li>C#</li><li>.NET 10</li><li>ONNX Runtime</li><li>Computer Vision</li><li>3D Reconstruction</li><li>SDXL</li><li>ControlNet</li><li>React</li><li>TypeScript</li>
+            <li>C#</li><li>.NET 10</li><li>ONNX Runtime</li><li>Computer Vision</li><li>3D Reconstruction</li><li>SigLIP 2</li><li>Grounding DINO</li><li>SDXL</li><li>ControlNet</li><li>React</li><li>TypeScript</li>
           </ul>
         </div>
       </article>
 
       <article class="item">
         <div class="item__meta">
-          <p class="item__org">University of Utah - Laboratory for Experimental Economics and Finance</p>
-          <p class="item__when">Apr 2026 - Present</p>
-          <p class="item__where">Salt Lake City, UT · Remote</p>
-        </div>
-        <div>
-          <h3 class="item__title">Undergraduate Research Assistant</h3>
-          <ul class="bullets">
-            <li>Engineering full-stack features for a real-time experimental-markets platform that powers economics and finance research and university coursework.</li>
-            <li>Building responsive, component-driven interfaces in <strong>Angular 22</strong> and TypeScript, using standalone signal-based components, Angular Material, RxJS, and STOMP over WebSockets to stream live market data.</li>
-            <li>Extending the Java 21 and Spring Boot backend on Maven, including concurrency optimizations built on virtual threads.</li>
-            <li>Collaborating in a fork-based GitHub workflow with senior-engineer code review, backed by unit testing in Vitest and validation against real production data.</li>
-          </ul>
-          <ul class="tags">
-            <li>Angular 22</li><li>TypeScript</li><li>RxJS</li><li>WebSockets</li><li>Java 21</li><li>Spring Boot</li><li>Vitest</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="item">
-        <div class="item__meta">
-          <p class="item__org">University of Utah - Dept. of Mechanical Engineering</p>
+          <span class="logo logo--img" data-logo="utah" aria-hidden="true"><img src="logos/utah.svg" alt="" loading="lazy" decoding="async"></span>
+          <p class="item__org">University of Utah</p>
           <p class="item__when">May 2025 - Present</p>
-          <p class="item__where">Salt Lake City, UT · Hybrid</p>
+          <p class="item__where">Salt Lake City, UT</p>
+          <p class="item__where">Three research labs</p>
+        </div>
+        <div class="roles">
+          <section class="role">
+            <h3 class="role__title">Utah Waves &amp; Architected Materials Lab</h3>
+            <p class="role__meta">Undergraduate Research Assistant · Sep&nbsp;2026&nbsp;-&nbsp;Present</p>
+            <ul class="bullets">
+              <li>Building a system that uses a swarm of AI agents to evaluate and fine-tune machine learning models automatically. Early-stage project: Python and PyTorch for the models, Claude for the agents.</li>
+            </ul>
+            <ul class="tags">
+              <li>Python</li><li>PyTorch</li><li>Claude</li><li>Multi-agent systems</li>
+            </ul>
+          </section>
+
+          <section class="role">
+            <h3 class="role__title">Laboratory for Experimental Economics and Finance (ULEEF)</h3>
+            <p class="role__meta">Undergraduate Research Assistant · Apr&nbsp;2026&nbsp;-&nbsp;Present</p>
+            <ul class="bullets">
+              <li>Engineering full-stack features for a real-time experimental-markets platform that powers economics and finance research and university coursework.</li>
+              <li>Building responsive, component-driven interfaces in <strong>Angular 22</strong> and TypeScript, using standalone signal-based components, Angular Material, RxJS, and STOMP over WebSockets to stream live market data.</li>
+              <li>Extending the Java 21 and Spring Boot backend on Maven, including concurrency optimizations built on virtual threads.</li>
+              <li>Collaborating in a fork-based GitHub workflow with senior-engineer code review, backed by unit testing in Vitest and validation against real production data.</li>
+            </ul>
+            <ul class="tags">
+              <li>Angular 22</li><li>TypeScript</li><li>RxJS</li><li>WebSockets</li><li>Java 21</li><li>Spring Boot</li><li>Vitest</li>
+            </ul>
+          </section>
+
+          <section class="role">
+            <h3 class="role__title">Utah Lab of Artificial Intelligence Powered Systems</h3>
+            <p class="role__meta">Undergraduate Research Assistant · Mechanical Engineering · May&nbsp;2025&nbsp;-&nbsp;Present</p>
+            <ul class="bullets">
+              <li>Training and evaluating a <strong>CNN-LSTM</strong> model that predicts target values from video sequences, with Gaussian noise augmentation to keep it robust to noisy input.</li>
+              <li>Conducting machine-learning research focused on time-series modeling, predictive analytics, and iterative experimentation with different training strategies.</li>
+              <li>Developing full end-to-end ML workflows: data preprocessing, feature preparation, model training, validation, testing, and clear documentation of results.</li>
+              <li>Analyzing model behavior, comparing performance across variations, and refining approaches based on empirical findings.</li>
+            </ul>
+            <ul class="tags">
+              <li>Python</li><li>PyTorch</li><li>Time Series</li><li>Deep Learning</li><li>OpenCV</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="ventures">
+      <div class="section__head"><h2>Ventures</h2></div>
+
+      <article class="item">
+        <div class="item__meta">
+          <span class="logo" data-mono="NT" aria-hidden="true"></span>
+          <p class="item__org">Neotrace</p>
+          <p class="item__when">Aug 2026 - Present</p>
+          <p class="item__where">Salt Lake City, UT</p>
         </div>
         <div>
-          <h3 class="item__title">Undergraduate Research Assistant</h3>
+          <h3 class="item__title">Founder</h3>
+          <p class="item__lede">AI triage for newborn brain injury, from the EEG a NICU already records.</p>
+          <a class="badge" href="https://web.sandbox.ing/" rel="noopener"><span class="logo logo--ink logo--tight" data-logo="sandbox" aria-hidden="true"><img src="logos/sandbox.png" alt="" loading="lazy" decoding="async"></span>Sandbox accelerator · Fall 2026 cohort</a>
           <ul class="bullets">
-            <li>Conducting machine-learning research focused on time-series modeling, predictive analytics, and iterative experimentation with different training strategies.</li>
-            <li>Building and evaluating models, preparing and cleaning data, tuning performance, and troubleshooting training issues to improve model stability and accuracy.</li>
-            <li>Developing full end-to-end ML workflows: data preprocessing, feature preparation, model training, validation, testing, and clear documentation of results.</li>
-            <li>Analyzing model behavior, comparing performance across variations, and refining approaches based on empirical findings.</li>
+            <li>Built the prototype in spring 2026: a web app that predicts neurodevelopmental outcomes for newborns from raw EEG recordings, to help triage neonatal HIE cases in the NICU. Users upload a standard <code>.edf</code> file and get two independent probability estimates - likelihood of normal development and likelihood of severe impairment - with a low risk / review / high risk triage flag.</li>
+            <li>Fine-tuned an <strong>EEG-DINO-L</strong> transformer encoder (24 layers, 1024-d embeddings) end to end on labeled neonatal HIE recordings, with dual classification heads for good and severe outcomes.</li>
+            <li>Built the full signal-processing pipeline in MNE-Python: 19-channel 10-20 montage selection, 0.3-30 Hz bandpass filter, resampling to 128 Hz, and 60-second sub-epoch aggregation.</li>
+            <li>Wrapped the model in a Flask application with SQLAlchemy, session-based auth using PBKDF2-hashed passwords, per-user prediction history, and a vanilla JS frontend.</li>
+          </ul>
+          <p class="stat"><b>0.947</b> <span>best validation AUC</span></p>
+          <ul class="tags">
+            <li>PyTorch</li><li>MNE-Python</li><li>MONAI</li><li>timm</li><li>Flask</li><li>SQLAlchemy</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item__meta">
+          <span class="logo" data-mono="OP" aria-hidden="true"></span>
+          <p class="item__org">OnPrem</p>
+          <p class="item__when">Jul 2026 - Present</p>
+          <p class="item__where">Salt Lake City, UT</p>
+        </div>
+        <div>
+          <h3 class="item__title">Co-founder</h3>
+          <p class="item__lede">An on-premise LLM gateway that routes each query to the best-suited model.</p>
+          <ul class="bullets">
+            <li>Building the machine learning side of the product, including the model that decides which LLM answers each query.</li>
           </ul>
           <ul class="tags">
-            <li>Python</li><li>PyTorch</li><li>Time Series</li><li>Deep Learning</li><li>OpenCV</li>
+            <li>Python</li><li>PyTorch</li><li>Transformers</li><li>LLMs</li>
           </ul>
         </div>
       </article>
@@ -498,7 +667,8 @@
 
       <article class="item">
         <div class="item__meta">
-          <p class="item__org">Open source</p>
+          <span class="logo" aria-hidden="true"><svg><use href="#i-github"/></svg></span>
+          <p class="item__org">Personal project</p>
           <p class="item__when">Mar 2026 - Present</p>
           <p class="item__where">Swift · MIT licensed</p>
         </div>
@@ -521,27 +691,7 @@
 
       <article class="item">
         <div class="item__meta">
-          <p class="item__org">Clinical decision support</p>
-          <p class="item__when">Jan 2026 - Apr 2026</p>
-          <p class="item__where">Deep learning · EEG</p>
-        </div>
-        <div>
-          <h3 class="item__title">NeuroNate - neonatal EEG triage</h3>
-          <ul class="bullets">
-            <li>A web app that predicts neurodevelopmental outcomes for newborns from raw EEG recordings, built to help triage neonatal HIE cases in the NICU. Users upload a standard <code>.edf</code> file and get two independent probability estimates - likelihood of normal development and likelihood of severe impairment - with a low risk / review / high risk triage flag.</li>
-            <li>Fine-tuned an <strong>EEG-DINO-L</strong> transformer encoder (24 layers, 1024-d embeddings) end to end on labeled neonatal HIE recordings, with dual classification heads for good and severe outcomes.</li>
-            <li>Built the full signal-processing pipeline in MNE-Python: 19-channel 10-20 montage selection, 0.3-30 Hz bandpass filter, resampling to 128 Hz, and 60-second sub-epoch aggregation.</li>
-            <li>Wrapped the model in a Flask application with SQLAlchemy, session-based auth using PBKDF2-hashed passwords, per-user prediction history, and a vanilla JS frontend.</li>
-          </ul>
-          <p class="stat"><b>0.947</b> <span>best validation AUC</span></p>
-          <ul class="tags">
-            <li>PyTorch</li><li>MNE-Python</li><li>MONAI</li><li>timm</li><li>Flask</li><li>SQLAlchemy</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="item">
-        <div class="item__meta">
+          <span class="logo logo--img" data-logo="solutions360" aria-hidden="true"><img src="logos/solutions360.png" alt="" loading="lazy" decoding="async"></span>
           <p class="item__org">Solutions360</p>
           <p class="item__when">Feb 2026 - May 2026</p>
           <p class="item__where">Client project · University of Utah</p>
@@ -564,22 +714,26 @@
     <section class="section" id="awards">
       <div class="section__head"><h2>Awards</h2></div>
       <div class="grid">
-        <div class="card">
+        <div class="card card--logo">
+          <span class="logo logo--sm logo--img" data-logo="nvidia" aria-hidden="true"><img src="logos/nvidia.svg" alt="" loading="lazy" decoding="async"></span>
           <p class="card__t">NVIDIA's Choice Award</p>
           <p class="card__s">A Breath of Fresh Air: AI Hackathon</p>
           <p class="card__d">NVIDIA · Jun 2025</p>
         </div>
-        <div class="card">
+        <div class="card card--logo">
+          <span class="logo logo--sm logo--img logo--bleed" data-logo="kpmg" aria-hidden="true"><img src="logos/kpmg.png" alt="" loading="lazy" decoding="async"></span>
           <p class="card__t">Best Technical Dashboard</p>
           <p class="card__s">KPMG + Layton Construction Data Analytics Challenge</p>
           <p class="card__d">David Eccles School of Business · Nov 2025</p>
         </div>
-        <div class="card">
+        <div class="card card--logo">
+          <span class="logo logo--sm logo--bleed" data-logo="wellsfargo" aria-hidden="true" style="background:#FFCD41"><img src="logos/wellsfargo.svg" alt="" loading="lazy" decoding="async"></span>
           <p class="card__t">Top Ten - Early Talent Competition</p>
           <p class="card__s">Wells Fargo × The Global Career Accelerator</p>
           <p class="card__d">Feb 2026</p>
         </div>
-        <div class="card">
+        <div class="card card--logo">
+          <span class="logo logo--sm logo--img" data-logo="utah" aria-hidden="true"><img src="logos/utah.svg" alt="" loading="lazy" decoding="async"></span>
           <p class="card__t">Aerospace Scholars Program</p>
           <p class="card__s">Selected participant, Price College of Engineering</p>
           <p class="card__d">University of Utah</p>
@@ -590,27 +744,32 @@
     <section class="section" id="certifications">
       <div class="section__head"><h2>Certifications</h2></div>
       <div class="grid">
-        <div class="card">
+        <div class="card card--logo">
+          <span class="logo logo--sm logo--img logo--bleed" data-logo="bloomberg" aria-hidden="true"><img src="logos/bloomberg.png" alt="" loading="lazy" decoding="async"></span>
           <p class="card__t">Bloomberg Market Concepts</p>
           <p class="card__s">Financial markets, economics, fixed income, equities, currencies</p>
           <p class="card__d">Bloomberg · Apr 2026</p>
         </div>
-        <div class="card">
+        <div class="card card--logo">
+          <span class="logo logo--sm logo--ink" data-logo="gca" aria-hidden="true"><img src="logos/gca-mark.svg" alt="" loading="lazy" decoding="async"></span>
           <p class="card__t">AI Professional Skills</p>
           <p class="card__s">With OpenAI · large language models</p>
           <p class="card__d">Global Career Accelerator · May 2026</p>
         </div>
-        <div class="card">
+        <div class="card card--logo">
+          <span class="logo logo--sm logo--ink" data-logo="gca" aria-hidden="true"><img src="logos/gca-mark.svg" alt="" loading="lazy" decoding="async"></span>
           <p class="card__t">Python and Data</p>
           <p class="card__s">With the Recording Academy · Python, Plotly</p>
           <p class="card__d">Global Career Accelerator · May 2026</p>
         </div>
-        <div class="card">
+        <div class="card card--logo">
+          <span class="logo logo--sm logo--ink" data-logo="gca" aria-hidden="true"><img src="logos/gca-mark.svg" alt="" loading="lazy" decoding="async"></span>
           <p class="card__t">Querying Data</p>
           <p class="card__s">SQL</p>
           <p class="card__d">Global Career Accelerator · Mar 2026</p>
         </div>
-        <div class="card">
+        <div class="card card--logo">
+          <span class="logo logo--sm logo--ink" data-logo="gca" aria-hidden="true"><img src="logos/gca-mark.svg" alt="" loading="lazy" decoding="async"></span>
           <p class="card__t">Intercultural Skills</p>
           <p class="card__s">With UNESCO</p>
           <p class="card__d">Global Career Accelerator · May 2026</p>
@@ -623,17 +782,23 @@
       <div class="edu">
         <div class="edu__row">
           <p class="edu__when">Aug 2024 - Apr 2027</p>
-          <p class="edu__what">
-            <strong>B.S. Data Science, minor in Fintech</strong>
-            <span>University of Utah · Dean's List - Fall 2024, Summer 2025, Spring 2026</span>
-          </p>
+          <div class="edu__what">
+            <span class="logo logo--sm logo--img" data-logo="utah" aria-hidden="true"><img src="logos/utah.svg" alt="" loading="lazy" decoding="async"></span>
+            <p>
+              <strong>B.S. Data Science, minor in Fintech</strong>
+              <span>University of Utah · Dean's List - Fall 2024, Summer 2025, Spring 2026</span>
+            </p>
+          </div>
         </div>
         <div class="edu__row">
           <p class="edu__when">Sep 2023 - Jun 2024</p>
-          <p class="edu__what">
-            <strong>B.A.Sc. Applied Mathematics / Data Science</strong>
-            <span>Inholland University of Applied Sciences · Amsterdam, Netherlands</span>
-          </p>
+          <div class="edu__what">
+            <span class="logo logo--sm logo--img logo--bleed" data-logo="inholland" aria-hidden="true"><img src="logos/inholland.png" alt="" loading="lazy" decoding="async"></span>
+            <p>
+              <strong>B.A.Sc. Applied Mathematics / Data Science</strong>
+              <span>Inholland University of Applied Sciences · Amsterdam, Netherlands</span>
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -647,7 +812,7 @@
       <div>
         <h2>Have an interesting ML problem?</h2>
         <p class="prose">
-          I'm looking for a Fall 2026 machine learning or AI internship - and I'm always glad
+          I'm looking for a Spring 2027 machine learning or AI internship, and I'm always glad
           to compare notes on applied ML, especially in finance and fintech. Email is the
           fastest way to reach me.
         </p>
