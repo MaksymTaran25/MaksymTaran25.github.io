@@ -296,25 +296,6 @@
   .badge .logo:empty::before { font-size: 0.5625rem; }
   a.badge:hover { border-color: var(--accent); color: var(--accent); }
 
-  /* several roles under one organization */
-  .roles { display: grid; gap: 2rem; }
-  .role { position: relative; padding-left: 1.4rem; }
-  .role::before {
-    content: ""; position: absolute; left: 0; top: 0.45rem;
-    width: 9px; height: 9px; border-radius: 50%;
-    background: var(--paper); border: 2px solid var(--accent);
-  }
-  .role::after {
-    content: ""; position: absolute; left: 4px; top: 1.3rem; bottom: -1.7rem;
-    width: 1px; background: var(--rule);
-  }
-  .role:last-child::after { display: none; }
-  .role__title { font-size: 1.0625rem; font-weight: 650; line-height: 1.35; }
-  .role__meta {
-    font-family: var(--mono); font-size: 0.75rem; color: var(--ink-3);
-    font-variant-numeric: tabular-nums; margin: 0.25rem 0 0.75rem;
-  }
-
   /* ---------- card grids ---------- */
   .grid {
     display: grid; gap: 0.75rem;
@@ -567,50 +548,61 @@
       <article class="item">
         <div class="item__meta">
           <span class="logo logo--img" data-logo="utah" aria-hidden="true"><img src="logos/utah.svg" alt="" loading="lazy" decoding="async"></span>
-          <p class="item__org">University of Utah</p>
-          <p class="item__when">May 2025 - Present</p>
+          <p class="item__org">University of Utah - Utah Waves &amp; Architected Materials Lab</p>
+          <p class="item__when">Sep 2026 - Present</p>
           <p class="item__where">Salt Lake City, UT</p>
-          <p class="item__where">Three research labs</p>
         </div>
-        <div class="roles">
-          <section class="role">
-            <h3 class="role__title">Utah Waves &amp; Architected Materials Lab</h3>
-            <p class="role__meta">Undergraduate Research Assistant · Sep&nbsp;2026&nbsp;-&nbsp;Present</p>
-            <ul class="bullets">
-              <li>Building a system that uses a swarm of AI agents to evaluate and fine-tune machine learning models automatically. Early-stage project: Python and PyTorch for the models, Claude for the agents.</li>
-            </ul>
-            <ul class="tags">
-              <li>Python</li><li>PyTorch</li><li>Claude</li><li>Multi-agent systems</li>
-            </ul>
-          </section>
+        <div>
+          <h3 class="item__title">Undergraduate Research Assistant</h3>
+          <ul class="bullets">
+            <li>Building a system that uses a swarm of AI agents to evaluate and fine-tune machine learning models automatically. Early-stage project: Python and PyTorch for the models, Claude for the agents.</li>
+          </ul>
+          <ul class="tags">
+            <li>Python</li><li>PyTorch</li><li>Claude</li><li>Multi-agent systems</li>
+          </ul>
+        </div>
+      </article>
 
-          <section class="role">
-            <h3 class="role__title">Laboratory for Experimental Economics and Finance (ULEEF)</h3>
-            <p class="role__meta">Undergraduate Research Assistant · Apr&nbsp;2026&nbsp;-&nbsp;Present</p>
-            <ul class="bullets">
-              <li>Engineering full-stack features for a real-time experimental-markets platform that powers economics and finance research and university coursework.</li>
-              <li>Building responsive, component-driven interfaces in <strong>Angular 22</strong> and TypeScript, using standalone signal-based components, Angular Material, RxJS, and STOMP over WebSockets to stream live market data.</li>
-              <li>Extending the Java 21 and Spring Boot backend on Maven, including concurrency optimizations built on virtual threads.</li>
-              <li>Collaborating in a fork-based GitHub workflow with senior-engineer code review, backed by unit testing in Vitest and validation against real production data.</li>
-            </ul>
-            <ul class="tags">
-              <li>Angular 22</li><li>TypeScript</li><li>RxJS</li><li>WebSockets</li><li>Java 21</li><li>Spring Boot</li><li>Vitest</li>
-            </ul>
-          </section>
+      <article class="item">
+        <div class="item__meta">
+          <span class="logo logo--img" data-logo="utah" aria-hidden="true"><img src="logos/utah.svg" alt="" loading="lazy" decoding="async"></span>
+          <p class="item__org">University of Utah - Laboratory for Experimental Economics and Finance</p>
+          <p class="item__when">Apr 2026 - Present</p>
+          <p class="item__where">Salt Lake City, UT · Remote</p>
+        </div>
+        <div>
+          <h3 class="item__title">Undergraduate Research Assistant</h3>
+          <ul class="bullets">
+            <li>Engineering full-stack features for a real-time experimental-markets platform that powers economics and finance research and university coursework.</li>
+            <li>Building responsive, component-driven interfaces in <strong>Angular 22</strong> and TypeScript, using standalone signal-based components, Angular Material, RxJS, and STOMP over WebSockets to stream live market data.</li>
+            <li>Extending the Java 21 and Spring Boot backend on Maven, including concurrency optimizations built on virtual threads.</li>
+            <li>Collaborating in a fork-based GitHub workflow with senior-engineer code review, backed by unit testing in Vitest and validation against real production data.</li>
+          </ul>
+          <ul class="tags">
+            <li>Angular 22</li><li>TypeScript</li><li>RxJS</li><li>WebSockets</li><li>Java 21</li><li>Spring Boot</li><li>Vitest</li>
+          </ul>
+        </div>
+      </article>
 
-          <section class="role">
-            <h3 class="role__title">Utah Lab of Artificial Intelligence Powered Systems</h3>
-            <p class="role__meta">Undergraduate Research Assistant · Mechanical Engineering · May&nbsp;2025&nbsp;-&nbsp;Present</p>
-            <ul class="bullets">
-              <li>Training and evaluating a <strong>CNN-LSTM</strong> model that predicts target values from video sequences, with Gaussian noise augmentation to keep it robust to noisy input.</li>
-              <li>Conducting machine-learning research focused on time-series modeling, predictive analytics, and iterative experimentation with different training strategies.</li>
-              <li>Developing full end-to-end ML workflows: data preprocessing, feature preparation, model training, validation, testing, and clear documentation of results.</li>
-              <li>Analyzing model behavior, comparing performance across variations, and refining approaches based on empirical findings.</li>
-            </ul>
-            <ul class="tags">
-              <li>Python</li><li>PyTorch</li><li>Time Series</li><li>Deep Learning</li><li>OpenCV</li>
-            </ul>
-          </section>
+      <article class="item">
+        <div class="item__meta">
+          <span class="logo logo--img" data-logo="utah" aria-hidden="true"><img src="logos/utah.svg" alt="" loading="lazy" decoding="async"></span>
+          <p class="item__org">University of Utah - Utah Lab of Artificial Intelligence Powered Systems</p>
+          <p class="item__when">May 2025 - Present</p>
+          <p class="item__where">Salt Lake City, UT · Hybrid</p>
+        </div>
+        <div>
+          <h3 class="item__title">Undergraduate Research Assistant</h3>
+          <ul class="bullets">
+            <li>Training and evaluating a <strong>CNN-LSTM</strong> model that predicts target values from video sequences, with Gaussian noise augmentation to keep it robust to noisy input.</li>
+            <li>Conducting machine-learning research focused on time-series modeling, predictive analytics, and iterative experimentation with different training strategies.</li>
+            <li>Building and evaluating models, preparing and cleaning data, tuning performance, and troubleshooting training issues to improve model stability and accuracy.</li>
+            <li>Developing full end-to-end ML workflows: data preprocessing, feature preparation, model training, validation, testing, and clear documentation of results.</li>
+            <li>Analyzing model behavior, comparing performance across variations, and refining approaches based on empirical findings.</li>
+          </ul>
+          <ul class="tags">
+            <li>Python</li><li>PyTorch</li><li>Time Series</li><li>Deep Learning</li><li>OpenCV</li>
+          </ul>
         </div>
       </article>
     </section>
@@ -787,6 +779,16 @@
             <p>
               <strong>B.S. Data Science, minor in Fintech</strong>
               <span>University of Utah · Dean's List - Fall 2024, Summer 2025, Spring 2026</span>
+            </p>
+          </div>
+        </div>
+        <div class="edu__row">
+          <p class="edu__when">Aug 2026 - Present</p>
+          <div class="edu__what">
+            <span class="logo logo--sm logo--ink logo--tight" data-logo="sandbox" aria-hidden="true"><img src="logos/sandbox.png" alt="" loading="lazy" decoding="async"></span>
+            <p>
+              <strong>Sandbox Startup Accelerator</strong>
+              <span>Fall 2026 cohort at the University of Utah · building Neotrace</span>
             </p>
           </div>
         </div>
