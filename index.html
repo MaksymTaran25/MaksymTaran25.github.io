@@ -303,6 +303,20 @@
   .badge .logo:empty::before { font-size: 0.5625rem; }
   a.badge:hover { border-color: var(--accent); color: var(--accent); }
 
+  /* ---------- skills ---------- */
+  .skills { display: grid; }
+  .skills__row {
+    display: grid; grid-template-columns: 13.5rem minmax(0, 1fr);
+    gap: 0.5rem 2.5rem; padding-block: 0.95rem;
+  }
+  .skills__row + .skills__row { border-top: 1px solid var(--rule); }
+  .skills__k {
+    font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--ink-3); padding-top: 0.3rem;
+  }
+  .skills .tags { margin-top: 0; gap: 0.35rem; }
+  .skills .tags li { font-size: 0.75rem; padding: 0.2rem 0.5rem; }
+
   /* ---------- card grids ---------- */
   .grid {
     display: grid; gap: 0.75rem;
@@ -383,7 +397,7 @@
     .hero__grid, .footer__grid { grid-template-columns: 1fr; }
     .stack-strip { grid-template-columns: 1fr; gap: 0.9rem; }
     .stack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .item, .edu__row { grid-template-columns: 1fr; gap: 0.75rem; }
+    .item, .edu__row, .skills__row { grid-template-columns: 1fr; gap: 0.75rem; }
     .item__meta { gap: 0.1rem; grid-template-columns: auto minmax(0, 1fr); column-gap: 0.85rem; }
     .item__meta .logo { grid-row: 1 / span 3; margin-bottom: 0; align-self: center; }
     .item__meta > :not(.logo) { grid-column: 2; }
@@ -407,6 +421,7 @@
       <a href="#experience">Experience</a>
       <a href="#ventures">Ventures</a>
       <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
       <a href="#awards">Awards</a>
       <a href="#certifications">Certifications</a>
       <a href="#contact">Contact</a>
@@ -702,6 +717,48 @@
           </ul>
         </div>
       </article>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section__head"><h2>Skills</h2></div>
+      <div class="skills">
+        <div class="skills__row">
+          <p class="skills__k">Languages</p>
+          <ul class="tags"><li>Python</li><li>C#</li><li>Java</li><li>TypeScript</li><li>SQL</li><li>Swift</li><li>HTML/CSS</li></ul>
+        </div>
+        <div class="skills__row">
+          <p class="skills__k">ML and AI</p>
+          <ul class="tags"><li>Deep learning</li><li>Computer vision</li><li>LLMs</li><li>LLM integration</li><li>Generative AI</li><li>AI agents</li><li>Multi-agent systems</li><li>Multimodal models</li><li>Transformers</li><li>Fine-tuning</li><li>Model evaluation</li><li>Model deployment</li><li>Diffusion models</li><li>3D reconstruction</li><li>Time series analysis</li><li>Predictive modeling</li><li>Statistical modeling</li><li>Responsible AI</li></ul>
+        </div>
+        <div class="skills__row">
+          <p class="skills__k">ML frameworks and models</p>
+          <ul class="tags"><li>PyTorch</li><li>TensorFlow</li><li>Hugging Face</li><li>scikit-learn</li><li>ONNX Runtime</li><li>OpenCV</li><li>MONAI</li><li>timm</li><li>MNE-Python</li><li>Stable Diffusion (SDXL)</li><li>ControlNet</li><li>SigLIP 2</li><li>Grounding DINO</li><li>MoGe-2</li><li>EEG-DINO</li><li>Gemini API</li><li>Claude</li></ul>
+        </div>
+        <div class="skills__row">
+          <p class="skills__k">Data science</p>
+          <ul class="tags"><li>Data preparation</li><li>Data wrangling</li><li>EDA</li><li>Statistical analysis</li><li>Data visualization</li><li>Data modeling</li><li>Pandas</li><li>NumPy</li><li>Matplotlib</li><li>Plotly</li></ul>
+        </div>
+        <div class="skills__row">
+          <p class="skills__k">Backend and web</p>
+          <ul class="tags"><li>.NET / ASP.NET Core</li><li>Spring Boot</li><li>FastAPI</li><li>Flask</li><li>REST APIs</li><li>React</li><li>Angular</li><li>Next.js</li><li>RxJS</li><li>WebSockets</li></ul>
+        </div>
+        <div class="skills__row">
+          <p class="skills__k">Databases and BI</p>
+          <ul class="tags"><li>PostgreSQL</li><li>MySQL</li><li>SQLite</li><li>SQLAlchemy</li><li>Power BI</li><li>Excel</li></ul>
+        </div>
+        <div class="skills__row">
+          <p class="skills__k">Apps and tools</p>
+          <ul class="tags"><li>SwiftUI</li><li>WidgetKit</li><li>Keychain Services</li><li>Git</li><li>GitHub</li><li>Maven</li><li>Vitest</li><li>Homebrew</li><li>XcodeGen</li><li>Adobe InDesign (IDML)</li><li>PDF</li><li>Pantone/CMYK color</li></ul>
+        </div>
+        <div class="skills__row">
+          <p class="skills__k">Finance</p>
+          <ul class="tags"><li>FinTech</li><li>Financial analysis</li><li>Financial markets</li><li>Economics</li></ul>
+        </div>
+        <div class="skills__row">
+          <p class="skills__k">Communication</p>
+          <ul class="tags"><li>English (fluent)</li><li>Ukrainian (native)</li><li>Russian (native)</li><li>Intercultural collaboration</li></ul>
+        </div>
+      </div>
     </section>
 
     <section class="section" id="awards">
